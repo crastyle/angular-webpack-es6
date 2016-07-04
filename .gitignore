@@ -1,0 +1,13 @@
+.DS_Store
+.tmp
+.git
+
+.settings
+*.log
+
+
+
+dist/
+.idea/
+node_modules/
+bower_components/

@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>移动协同开发</title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="description" content="NG6-Starter by @AngularClass">
+
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+    <base href="/">
+    <script type="text/javascript" src="http://webapi.amap.com/maps?v=1.3&key=2f68d8bce4d678228a3e0ee7341b6ee6"></script>
+    <style>
+        ion-tabs .tabs{
+            background:#736F78;
+            font-size:10px;
+            color:#fff;
+        }
+        ion-tabs .tabs span{
+            font-size:10px;
+            color:#000;
+        }
+
+        .tabs .tab-item{
+            color:#000;
+            position: relative;
+        }
+        .tabs .tab-item em{
+            width:.32rem;
+            height:.32rem;
+            background: #f00;
+            color:#fff;
+            font-size:.2rem;
+            text-align:center;
+            line-height:.32rem;
+            border-radius:50%;
+            display: block;
+            position: absolute;
+            top:.1rem;
+            right:.4rem;
+        }
+
+        .tabs .tab-item.tab-item-active{
+            color:#fff;
+        }
+        .tabs .tab-item.tab-item-active span{
+            color:#fff;
+        }
+    </style>
+    <script>
+        (function (win, doc) {
+            win.isMobile = ! ! /Android|webOS|iPhone|iPod|BlackBerry|IEMobile|Opera Mini|MicroMessenger/i.test(navigator.userAgent);
+            win.isIOS = ! ! /iPhone|iPad|iPod/i.test(navigator.userAgent);
+            win.isIOS7 = ! ! /(iPhone|iPad|iPod) OS 7/i.test(navigator.userAgent);
+            win.isAndroid = ! ! /Android/i.test(navigator.userAgent);
+            win.isWechat = ! ! /MicroMessenger/i.test(navigator.userAgent);
+            win.isIE = ! ! /Trident|Edge/i.test(navigator.userAgent);
+
+            var baseWidth = 640;
+            var documentHTML = doc.documentElement;
+
+            function setRootFont () {
+                var docWidth = documentHTML.getBoundingClientRect().width;
+                var scale = docWidth / baseWidth;
+                if (docWidth > 640) {
+                    scale = 0.5;
+                }
+                documentHTML.style.fontSize = scale * 100 + 'px';
+            }
+
+            setRootFont();
+            win.addEventListener('resize', setRootFont, false);
+        })(window, document);
+    </script>
+</head>
+<body ng-app="pubarApp" ng-cloak ng-strict-di style="background: #282828">
+<div ui-view></div>
+<ion-tabs class="tabs-icon-top bar-stable  " ng-class="{'tabs-item-hide': $root.hideTabs}" >
+    <ion-tab title="酒局" icon-off="ion-ios-wineglass-outline" icon-on="ion-ios-wineglass" href="#/index"></ion-tab>
+    <ion-tab title="聊天 <em>3</em>" icon-off="ion-ios-chatbubble-outline" icon-on="ion-ios-chatbubble" href="#/chatList"></ion-tab>
+    <ion-tab title="好友" icon-off="ion-ios-people-outline" icon-on="ion-ios-people" href="#/friend"></ion-tab>
+    <ion-tab title="我的 <em>1</em>" icon-off="ion-ios-person-outline" icon-on="ion-ios-person" href="#/member"></ion-tab>
+</ion-tabs>
+
+</body>
+</html>

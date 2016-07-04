@@ -1,0 +1,122 @@
+
+@import "color";
+$assetUrl:'http://h5.pubar.me/lib/images/';
+@mixin ellipsis{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+@mixin vertical{
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-box-pack: center;
+  -webkit-box-align: center;
+}
+
+@mixin chatBox{
+
+  border-radius:4px;
+  background: #444;
+  li{
+    position: relative;
+    padding:.1rem;
+    padding-left:1rem;
+    .avatar{
+      display: block;
+      width:.7rem;
+      height:.7rem;
+      margin-left:-0.8rem;
+      float: left;
+      border-radius:50%;
+    }
+    .nickname{
+      color:#fff;
+      font-size:.25rem;
+    }
+    .msg-content{
+      color:#fff;
+      background: #282828;
+      padding:.15rem .2rem;
+      border-radius:4px;
+      margin-top:.2rem;
+      position:relative;
+      &:before{
+        font-family: "Ionicons";
+        display: block;
+        content:'\F107';
+        position: absolute;
+        left:-6px;
+        top:5px;
+        color:$background-color;
+        font-size:.35rem;
+      }
+    }
+    &.my{
+      padding:.3rem;
+      padding-right:1rem;
+      .avatar{
+        display: block;
+        width:.7rem;
+        height:.7rem;
+        margin-right:-0.8rem;
+        float: right;
+        border-radius:50%;
+      }
+      .nickname{
+        text-align:right;
+      }
+      .msg-content{
+        background: #736F78;
+        &:before{
+          content:''
+        }
+        &:after{
+          font-family: "Ionicons";
+          display: block;
+          content:"\F10A";
+          position: absolute;
+          right:-6px;
+          top:5px;
+          color:#736F78;
+          font-size:.35rem;
+        }
+      }
+    }
+  }
+}
+@mixin normalTextBox{
+  width:100%;
+  border:none;
+  border-radius:4px;
+  padding:0 10px;
+  box-sizing: border-box;
+}
+@mixin sex($left,$top){
+  .sex{
+    display: block;
+    width:.35rem;
+    height:.35rem;
+    position: absolute;
+    left:$left;
+    top:$top;
+    color:#fff;
+    border-radius:50%;
+    font-size:.1rem;
+    text-align:center;
+    line-height:.35rem;
+    &.male{
+      background: #FF6E8F;
+    }
+    &.female{
+      background: #6CA9FF;
+      transform: rotate(45deg);
+    }
+  }
+}
+
+
+
+
+a{
+  text-decoration:none;
+}

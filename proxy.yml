@@ -1,0 +1,8 @@
+#proxy: ""
+
+#rap 的mock服务器
+#proxy: "http://rap.taobao.org/mockjs/3987"
+#rap pubar rap服务器
+proxy: "http://api.pubar.me/"
+#测试服务器
+#proxy: "http://test.pubar.me/api"
